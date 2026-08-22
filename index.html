@@ -254,7 +254,7 @@
   <script>
     const menuBtn = document.getElementById('menu-btn');
     const nav = document.getElementById('main-nav');
-    const HEADER_OFFSET = 92;
+    const HEADER_OFFSET = 100;
 
     menuBtn.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('open');
@@ -276,8 +276,10 @@
     }
 
     function scrollToElement(el) {
-      const top = el.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
-      window.scrollTo({ top, behavior: 'smooth' });
+      // Force layout recalculation
+      void el.offsetHeight;
+      const top = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
     }
 
     // Accordion header clicks
@@ -313,10 +315,14 @@
 
         openAccordion(id);
 
-        // Start scrolling while the accordion is still opening (snappier feel)
-        setTimeout(() => {
-          scrollToElement(target);
-        }, 160);
+        // Wait for layout to settle after open/close, then scroll
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            setTimeout(() => {
+              scrollToElement(target);
+            }, 50);
+          });
+        });
 
         history.pushState(null, '', '#' + id);
       });
@@ -348,7 +354,7 @@
         }
         setTimeout(() => {
           scrollToElement(target);
-        }, 80);
+        }, 100);
       }
     }
   </script>

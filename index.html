@@ -311,10 +311,10 @@
 
         openAccordion(id);
 
-        // Wait for the CSS transition (0.35s) to finish so layout is stable
+        // Balanced delay: snappier than 300ms, more reliable than 160ms
         setTimeout(() => {
           scrollToElement(target);
-        }, 300);
+        }, 230);
 
         history.pushState(null, '', '#' + id);
       });

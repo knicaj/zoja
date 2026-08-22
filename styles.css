@@ -315,7 +315,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ===== Accordion ===== */
 .accordion-section {
-  padding: 20px 0 60px;
+  padding: 10px 0 60px;
 }
 
 .accordion-item {
@@ -326,8 +326,7 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
   border: 1px solid rgba(232, 208, 192, 0.35);
   transition: box-shadow 0.25s;
-  /* Offset for sticky header so sections aren't hidden underneath */
-  scroll-margin-top: calc(var(--header-height) + 20px);
+  scroll-margin-top: calc(var(--header-height) + 24px);
 }
 
 .accordion-item:hover {
@@ -343,7 +342,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 24px;
+  padding: 20px 28px;
   background: none;
   border: none;
   cursor: pointer;
@@ -380,11 +379,11 @@ a { color: inherit; text-decoration: none; }
 
 .accordion-body {
   overflow: hidden;
-  padding: 0 24px;
+  padding: 0 28px;
 }
 
 .accordion-item.open .accordion-body {
-  padding: 0 24px 24px;
+  padding: 0 28px 28px;
 }
 
 .accordion-body p {
@@ -392,6 +391,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.02rem;
   margin-bottom: 14px;
   line-height: 1.65;
+  max-width: 720px;
 }
 
 .accordion-body p:last-child {
@@ -400,37 +400,40 @@ a { color: inherit; text-decoration: none; }
 
 .research-list {
   display: grid;
-  gap: 14px;
-  margin-top: 18px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
 }
 
 .research-item {
   background: var(--cream);
   border-left: 3px solid var(--teal);
-  padding: 16px 18px;
-  border-radius: 0 10px 10px 0;
+  padding: 18px 20px;
+  border-radius: 0 12px 12px 0;
 }
 
 .research-item h3 {
   color: var(--teal);
   font-size: 1.05rem;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .research-item p {
   font-size: 0.92rem;
   margin-bottom: 0;
+  max-width: none;
 }
 
 .involve-grid {
   display: grid;
-  gap: 14px;
-  margin-top: 18px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
 }
 
 .involve-card {
   background: var(--cream);
-  padding: 18px 20px;
+  padding: 20px 22px;
   border-radius: 12px;
 }
 
@@ -443,12 +446,13 @@ a { color: inherit; text-decoration: none; }
 .involve-card p {
   font-size: 0.92rem;
   margin-bottom: 8px;
+  max-width: none;
 }
 
 /* ===== Contact Form ===== */
 .section {
   padding: 60px 0;
-  scroll-margin-top: calc(var(--header-height) + 20px);
+  scroll-margin-top: calc(var(--header-height) + 24px);
 }
 
 .section h2 {
@@ -527,7 +531,7 @@ a { color: inherit; text-decoration: none; }
   color: white;
   text-align: center;
   padding: 70px 0;
-  scroll-margin-top: calc(var(--header-height) + 20px);
+  scroll-margin-top: calc(var(--header-height) + 24px);
 }
 
 .donate-cta h2 {
@@ -611,6 +615,10 @@ a { color: inherit; text-decoration: none; }
   .hero-image img { max-width: 360px; }
   .cards { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
+  .research-list,
+  .involve-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
@@ -654,5 +662,13 @@ a { color: inherit; text-decoration: none; }
   .accordion-header {
     font-size: 1.15rem;
     padding: 18px 20px;
+  }
+
+  .accordion-body {
+    padding: 0 20px;
+  }
+
+  .accordion-item.open .accordion-body {
+    padding: 0 20px 22px;
   }
 }

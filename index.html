@@ -6,6 +6,8 @@
   <title>Zoja Research Foundation | Hope Through Research</title>
   <meta name="description" content="Zoja Research Foundation advances research into SMG9 deficiency, supporting scientific discovery and families affected by this rare condition." />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="logo.jpg" type="image/jpeg" />
+  <link rel="apple-touch-icon" href="logo.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -22,16 +24,15 @@
           <span>Research. Support. Hope.</span>
         </div>
       </a>
-      <nav class="nav">
+      <nav class="nav" id="main-nav">
         <a href="#mission">About Us</a>
         <a href="#research">Research</a>
         <a href="#families">For Families</a>
         <a href="#get-involved">Get Involved</a>
-        <a href="#">News & Resources</a>
         <a href="#contact">Contact</a>
         <a href="#donate" class="btn btn-donate">Donate ♥</a>
       </nav>
-      <button class="mobile-menu-btn" aria-label="Menu">
+      <button class="mobile-menu-btn" id="menu-btn" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -157,6 +158,38 @@
     </div>
   </section>
 
+  <!-- Contact Form -->
+  <section id="contact" class="section">
+    <div class="container narrow">
+      <h2>Contact Us</h2>
+      <p class="section-lead">Have a question, want to collaborate, or need support? Send us a message and we’ll get back to you.</p>
+      
+      <form action="https://formspree.io/f/mwlezavn" method="POST" class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="How can we help?">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+
+      <p class="contact-note">Or email us directly at <a href="mailto:info@zojafoundation.com">info@zojafoundation.com</a></p>
+    </div>
+  </section>
+
   <!-- Donate CTA -->
   <section id="donate" class="donate-cta">
     <div class="container">
@@ -168,7 +201,7 @@
   </section>
 
   <!-- Footer -->
-  <footer id="contact" class="footer">
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -180,7 +213,7 @@
           <a href="#research">Research</a>
           <a href="#families">For Families</a>
           <a href="#get-involved">Get Involved</a>
-          <a href="mailto:info@zojafoundation.com">Contact</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -190,14 +223,23 @@
   </footer>
 
   <script>
-    const btn = document.querySelector('.mobile-menu-btn');
-    const nav = document.querySelector('.nav');
-    if (btn) {
-      btn.addEventListener('click', () => {
-        nav.classList.toggle('open');
-        btn.classList.toggle('open');
+    const menuBtn = document.getElementById('menu-btn');
+    const nav = document.getElementById('main-nav');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      menuBtn.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close menu when a link is clicked
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuBtn.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
       });
-    }
+    });
   </script>
 </body>
 </html>

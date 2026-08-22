@@ -88,7 +88,7 @@
 
   <!-- Accordion Sections -->
   <section class="accordion-section">
-    <div class="container narrow">
+    <div class="container">
 
       <!-- Mission -->
       <div class="accordion-item" id="mission">
@@ -276,13 +276,11 @@
     }
 
     function scrollToElement(el) {
-      // Force layout recalculation
       void el.offsetHeight;
       const top = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
       window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
     }
 
-    // Accordion header clicks
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const item = header.parentElement;
@@ -300,7 +298,6 @@
       });
     });
 
-    // Nav / card links that open an accordion
     document.querySelectorAll('[data-accordion]').forEach(link => {
       link.addEventListener('click', (e) => {
         const id = link.getAttribute('data-accordion');
@@ -315,7 +312,6 @@
 
         openAccordion(id);
 
-        // Wait for layout to settle after open/close, then scroll
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             setTimeout(() => {
@@ -328,7 +324,6 @@
       });
     });
 
-    // Contact / Donate links
     document.querySelectorAll('a[href="#contact"], a[href="#donate"]').forEach(link => {
       link.addEventListener('click', (e) => {
         const target = document.querySelector(link.getAttribute('href'));
@@ -344,7 +339,6 @@
       });
     });
 
-    // On page load with a hash
     if (window.location.hash) {
       const id = window.location.hash.slice(1);
       const target = document.getElementById(id);

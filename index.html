@@ -252,9 +252,9 @@
   </footer>
 
   <script>
-    // Mobile menu
     const menuBtn = document.getElementById('menu-btn');
     const nav = document.getElementById('main-nav');
+    const HEADER_OFFSET = 92; // header height + a little extra breathing room
 
     menuBtn.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('open');
@@ -262,7 +262,6 @@
       menuBtn.setAttribute('aria-expanded', isOpen);
     });
 
-    // Helper: open a specific accordion and close others
     function openAccordion(id) {
       document.querySelectorAll('.accordion-item').forEach(item => {
         const header = item.querySelector('.accordion-header');
@@ -274,6 +273,11 @@
           header.setAttribute('aria-expanded', 'false');
         }
       });
+    }
+
+    function scrollToElement(el) {
+      const top = el.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
 
     // Accordion header clicks
@@ -294,40 +298,57 @@
       });
     });
 
-    // All links that should open an accordion
+    // Nav / card links that open an accordion
     document.querySelectorAll('[data-accordion]').forEach(link => {
       link.addEventListener('click', (e) => {
         const id = link.getAttribute('data-accordion');
         const target = document.getElementById(id);
+        if (!target) return;
 
-        if (target) {
-          e.preventDefault();
-          openAccordion(id);
+        e.preventDefault();
 
-          // Close mobile menu if open
-          nav.classList.remove('open');
-          menuBtn.classList.remove('open');
-          menuBtn.setAttribute('aria-expanded', 'false');
+        // Close mobile menu
+        nav.classList.remove('open');
+        menuBtn.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
 
-          // Smooth scroll to the section
-          setTimeout(() => {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 50);
+        openAccordion(id);
 
-          // Update URL hash without jumping
-          history.pushState(null, '', '#' + id);
-        }
+        // Wait for the accordion open animation (0.35s) to finish, then scroll
+        setTimeout(() => {
+          scrollToElement(target);
+        }, 380);
+
+        history.pushState(null, '', '#' + id);
       });
     });
 
-    // Open correct section on page load if hash is present
+    // Contact / Donate links (no accordion)
+    document.querySelectorAll('a[href="#contact"], a[href="#donate"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+
+        nav.classList.remove('open');
+        menuBtn.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+
+        scrollToElement(target);
+        history.pushState(null, '', link.getAttribute('href'));
+      });
+    });
+
+    // On page load with a hash
     if (window.location.hash) {
       const id = window.location.hash.slice(1);
       const target = document.getElementById(id);
-      if (target && target.classList.contains('accordion-item')) {
-        openAccordion(id);
+      if (target) {
+        if (target.classList.contains('accordion-item')) {
+          openAccordion(id);
+        }
         setTimeout(() => {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          scrollToElement(target);
         }, 100);
       }
     }

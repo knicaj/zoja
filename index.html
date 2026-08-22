@@ -25,10 +25,10 @@
         </div>
       </a>
       <nav class="nav" id="main-nav">
-        <a href="#mission">About Us</a>
-        <a href="#research">Research</a>
-        <a href="#families">For Families</a>
-        <a href="#get-involved">Get Involved</a>
+        <a href="#mission" data-accordion="mission">About Us</a>
+        <a href="#research" data-accordion="research">Research</a>
+        <a href="#families" data-accordion="families">For Families</a>
+        <a href="#get-involved" data-accordion="get-involved">Get Involved</a>
         <a href="#contact">Contact</a>
         <a href="#donate" class="btn btn-donate">Donate ♥</a>
       </nav>
@@ -48,7 +48,7 @@
           Advancing research. Supporting families affected by <strong>SMG9</strong> deficiency. Building a future of answers, treatments, and hope.
         </p>
         <div class="hero-actions">
-          <a href="#mission" class="btn btn-primary">Learn Our Mission →</a>
+          <a href="#mission" data-accordion="mission" class="btn btn-primary">Learn Our Mission →</a>
           <a href="#" class="btn btn-ghost">▶ Watch Our Story</a>
         </div>
       </div>
@@ -66,21 +66,21 @@
           <div class="card-icon-wrap peach">🔬</div>
           <h3>Advancing Research</h3>
           <p>Driving scientific discovery to uncover the causes of SMG9 deficiency and develop meaningful treatments.</p>
-          <a href="#research" class="card-link">Explore Our Research →</a>
+          <a href="#research" data-accordion="research" class="card-link">Explore Our Research →</a>
         </div>
 
         <div class="card card-mint">
           <div class="card-icon-wrap mint">👨‍👩‍👧</div>
           <h3>Supporting Families</h3>
           <p>Providing resources, connection, and compassionate support for families navigating life with SMG9 deficiency.</p>
-          <a href="#families" class="card-link">Resources for Families →</a>
+          <a href="#families" data-accordion="families" class="card-link">Resources for Families →</a>
         </div>
 
         <div class="card card-peach">
           <div class="card-icon-wrap peach">💙</div>
           <h3>Building Hope</h3>
           <p>Together, we are creating a future of answers, treatments, and hope for every individual affected by SMG9 deficiency.</p>
-          <a href="#get-involved" class="card-link">Ways to Get Involved →</a>
+          <a href="#get-involved" data-accordion="get-involved" class="card-link">Ways to Get Involved →</a>
         </div>
       </div>
     </div>
@@ -238,10 +238,10 @@
           <p>Advancing science. Supporting families. Creating hope.</p>
         </div>
         <div class="footer-links">
-          <a href="#mission">About</a>
-          <a href="#research">Research</a>
-          <a href="#families">For Families</a>
-          <a href="#get-involved">Get Involved</a>
+          <a href="#mission" data-accordion="mission">About</a>
+          <a href="#research" data-accordion="research">Research</a>
+          <a href="#families" data-accordion="families">For Families</a>
+          <a href="#get-involved" data-accordion="get-involved">Get Involved</a>
           <a href="#contact">Contact</a>
         </div>
       </div>
@@ -262,27 +262,31 @@
       menuBtn.setAttribute('aria-expanded', isOpen);
     });
 
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        menuBtn.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
+    // Helper: open a specific accordion and close others
+    function openAccordion(id) {
+      document.querySelectorAll('.accordion-item').forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        if (item.id === id) {
+          item.classList.add('open');
+          header.setAttribute('aria-expanded', 'true');
+        } else {
+          item.classList.remove('open');
+          header.setAttribute('aria-expanded', 'false');
+        }
       });
-    });
+    }
 
-    // Accordion
+    // Accordion header clicks
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const item = header.parentElement;
         const isOpen = item.classList.contains('open');
 
-        // Close all
         document.querySelectorAll('.accordion-item').forEach(i => {
           i.classList.remove('open');
           i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
         });
 
-        // Open clicked (if it wasn't already open)
         if (!isOpen) {
           item.classList.add('open');
           header.setAttribute('aria-expanded', 'true');
@@ -290,12 +294,41 @@
       });
     });
 
-    // Open section if URL has hash
+    // All links that should open an accordion
+    document.querySelectorAll('[data-accordion]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const id = link.getAttribute('data-accordion');
+        const target = document.getElementById(id);
+
+        if (target) {
+          e.preventDefault();
+          openAccordion(id);
+
+          // Close mobile menu if open
+          nav.classList.remove('open');
+          menuBtn.classList.remove('open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+
+          // Smooth scroll to the section
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 50);
+
+          // Update URL hash without jumping
+          history.pushState(null, '', '#' + id);
+        }
+      });
+    });
+
+    // Open correct section on page load if hash is present
     if (window.location.hash) {
-      const target = document.querySelector(window.location.hash);
+      const id = window.location.hash.slice(1);
+      const target = document.getElementById(id);
       if (target && target.classList.contains('accordion-item')) {
-        target.classList.add('open');
-        target.querySelector('.accordion-header').setAttribute('aria-expanded', 'true');
+        openAccordion(id);
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
       }
     }
   </script>

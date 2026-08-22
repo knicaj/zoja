@@ -16,18 +16,28 @@
   <header class="header">
     <div class="container header-inner">
       <a href="/" class="logo">
-        <span class="logo-mark">Z</span>
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 8c0 0 4 6 8 6s8-6 8-6" stroke="#2c6e6a" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M12 32c0 0 4-6 8-6s8 6 8 6" stroke="#2c6e6a" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M10 14c4 2 6 6 6 12" stroke="#e8a87c" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M30 14c-4 2-6 6-6 12" stroke="#e8a87c" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="20" cy="20" r="3" fill="#2c6e6a"/>
+          </svg>
+        </div>
         <div class="logo-text">
           <strong>Zoja Research Foundation</strong>
           <span>Research. Support. Hope.</span>
         </div>
       </a>
       <nav class="nav">
-        <a href="#mission">Mission</a>
+        <a href="#mission">About Us</a>
         <a href="#research">Research</a>
         <a href="#families">For Families</a>
         <a href="#get-involved">Get Involved</a>
-        <a href="#donate" class="btn btn-primary">Donate</a>
+        <a href="#">News & Resources</a>
+        <a href="#contact">Contact</a>
+        <a href="#donate" class="btn btn-donate">Donate ♥</a>
       </nav>
       <button class="mobile-menu-btn" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -37,55 +47,123 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container hero-content">
-      <p class="eyebrow">Together, we can create a better future</p>
-      <h1>Hope Through Research</h1>
-      <p class="hero-lead">
-        Advancing research. Supporting families affected by <strong>SMG9 deficiency</strong>. 
-        Building a future of answers, treatments, and hope.
-      </p>
-      <div class="hero-actions">
-        <a href="#mission" class="btn btn-primary">Learn Our Mission</a>
-        <a href="#get-involved" class="btn btn-secondary">Get Involved</a>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>Hope Through Research</h1>
+        <div class="hero-underline"></div>
+        <p class="hero-lead">
+          Advancing research. Supporting families affected by <strong>SMG9</strong> deficiency. Building a future of answers, treatments, and hope.
+        </p>
+        <div class="hero-actions">
+          <a href="#mission" class="btn btn-primary">Learn Our Mission →</a>
+          <a href="#" class="btn btn-ghost">▶ Watch Our Story</a>
+        </div>
       </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg class="art-dna" viewBox="0 0 280 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="180" cy="100" r="90" fill="#fce8d5" opacity="0.6"/>
+          <circle cx="200" cy="180" r="70" fill="#e8f0ee" opacity="0.5"/>
+          <path d="M160 40c20 25 40 25 60 0s40-25 60 0" stroke="#7eb8b2" stroke-width="3" fill="none" opacity="0.7"/>
+          <path d="M160 80c20 25 40 25 60 0s40-25 60 0" stroke="#7eb8b2" stroke-width="3" fill="none" opacity="0.7"/>
+          <path d="M160 120c20 25 40 25 60 0s40-25 60 0" stroke="#7eb8b2" stroke-width="3" fill="none" opacity="0.7"/>
+          <path d="M160 160c20 25 40 25 60 0s40-25 60 0" stroke="#7eb8b2" stroke-width="3" fill="none" opacity="0.7"/>
+          <path d="M160 200c20 25 40 25 60 0s40-25 60 0" stroke="#7eb8b2" stroke-width="3" fill="none" opacity="0.7"/>
+          <path d="M160 240c20 25 40 25 60 0s40-25 60 0" stroke="#7eb8b2" stroke-width="3" fill="none" opacity="0.7"/>
+          <line x1="175" y1="55" x2="205" y2="65" stroke="#e8a87c" stroke-width="2" opacity="0.6"/>
+          <line x1="175" y1="95" x2="205" y2="105" stroke="#e8a87c" stroke-width="2" opacity="0.6"/>
+          <line x1="175" y1="135" x2="205" y2="145" stroke="#e8a87c" stroke-width="2" opacity="0.6"/>
+          <line x1="175" y1="175" x2="205" y2="185" stroke="#e8a87c" stroke-width="2" opacity="0.6"/>
+          <line x1="175" y1="215" x2="205" y2="225" stroke="#e8a87c" stroke-width="2" opacity="0.6"/>
+          <circle cx="90" cy="70" r="8" fill="#e8a87c" opacity="0.7"/>
+          <circle cx="110" cy="55" r="5" fill="#7eb8b2" opacity="0.6"/>
+          <circle cx="105" cy="90" r="6" fill="#e8a87c" opacity="0.5"/>
+          <line x1="90" y1="70" x2="110" y2="55" stroke="#e8a87c" stroke-width="1.5" opacity="0.5"/>
+          <line x1="90" y1="70" x2="105" y2="90" stroke="#e8a87c" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="70" cy="160" r="7" fill="#7eb8b2" opacity="0.6"/>
+          <circle cx="50" cy="145" r="4" fill="#e8a87c" opacity="0.5"/>
+          <circle cx="55" cy="175" r="5" fill="#7eb8b2" opacity="0.5"/>
+          <path d="M40 220c15-25 35-20 40 5-20 10-35 5-40-5z" fill="#a8c5b8" opacity="0.7"/>
+          <path d="M55 250c20-20 40-10 35 15-25 5-35-5-35-15z" fill="#7eb8b2" opacity="0.6"/>
+          <path d="M90 280c18-22 38-15 32 12-22 8-32 0-32-12z" fill="#c4d9c8" opacity="0.7"/>
+          <path d="M130 270c12-18 28-12 25 10-18 5-25-2-25-10z" fill="#a8c5b8" opacity="0.6"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Cards -->
+  <section class="cards-section">
+    <div class="container">
+      <div class="cards">
+        <div class="card card-peach">
+          <div class="card-icon-wrap peach">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M6 18h8a4 4 0 0 0 0-8h-1"/>
+              <path d="M10 6H6a4 4 0 0 0 0 8h1"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <h3>Advancing Research</h3>
+          <p>Driving scientific discovery to uncover the causes of SMG9 deficiency and develop meaningful treatments.</p>
+          <a href="#research" class="card-link">Explore Our Research →</a>
+        </div>
+
+        <div class="card card-mint">
+          <div class="card-icon-wrap mint">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+              <circle cx="17" cy="7" r="3"/>
+              <path d="M21 21v-1.5a3.5 3.5 0 0 0-3.5-3.5"/>
+            </svg>
+          </div>
+          <h3>Supporting Families</h3>
+          <p>Providing resources, connection, and compassionate support for families navigating life with SMG9 deficiency.</p>
+          <a href="#families" class="card-link">Resources for Families →</a>
+        </div>
+
+        <div class="card card-peach">
+          <div class="card-icon-wrap peach">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3>Building Hope</h3>
+          <p>Together, we are creating a future of answers, treatments, and hope for every individual affected by SMG9 deficiency.</p>
+          <a href="#get-involved" class="card-link">Ways to Get Involved →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom banner -->
+  <section class="banner">
+    <div class="container banner-inner">
+      <div class="banner-text">
+        <svg class="leaf-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7eb8b2" stroke-width="1.5">
+          <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>
+          <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+        </svg>
+        <p>Every discovery brings us closer to treatments. Every family gives us strength. Every gift makes hope possible.</p>
+      </div>
+      <a href="#get-involved" class="btn btn-outline">Partner With Us →</a>
     </div>
   </section>
 
   <!-- Mission -->
-  <section id="mission" class="section mission">
-    <div class="container">
-      <div class="section-header">
-        <h2>Our Mission</h2>
-        <p>We fund patient-centered research and unite scientists, clinicians, and families to uncover answers and develop meaningful therapies for SMG9 deficiency.</p>
-      </div>
-      <div class="cards">
-        <div class="card">
-          <div class="card-icon">🔬</div>
-          <h3>Advancing Research</h3>
-          <p>Driving scientific discovery to better understand SMG9 deficiency and develop meaningful treatments.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">👨‍👩‍👧</div>
-          <h3>Supporting Families</h3>
-          <p>Providing resources, connection, and compassionate support for families navigating life with SMG9 deficiency.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">💙</div>
-          <h3>Building Hope</h3>
-          <p>Together, we are creating a future defined by answers, treatments, and hope for every individual affected.</p>
-        </div>
-      </div>
+  <section id="mission" class="section">
+    <div class="container narrow">
+      <h2>Our Mission</h2>
+      <p>We fund patient-centered research and unite scientists, clinicians, and families to uncover answers and develop meaningful therapies for SMG9 deficiency.</p>
     </div>
   </section>
 
   <!-- Research -->
-  <section id="research" class="section research">
+  <section id="research" class="section alt">
     <div class="container">
-      <div class="section-header">
-        <h2>Research Focus</h2>
-        <p>SMG9 deficiency is a rare genetic condition. We support research aimed at understanding its mechanisms and accelerating the path toward effective therapies.</p>
-      </div>
-      <div class="research-grid">
+      <h2>Research Focus</h2>
+      <p class="section-lead">SMG9 deficiency is a rare genetic condition. We support research aimed at understanding its mechanisms and accelerating the path toward effective therapies.</p>
+      <div class="research-list">
         <div class="research-item">
           <h3>Gene Therapy Approaches</h3>
           <p>Exploring promising strategies including AAV-based delivery and readthrough approaches that could address the underlying genetic cause.</p>
@@ -102,70 +180,64 @@
     </div>
   </section>
 
-  <!-- For Families -->
-  <section id="families" class="section families">
-    <div class="container">
-      <div class="section-header">
-        <h2>For Families</h2>
-        <p>You are not alone. We are committed to supporting families affected by SMG9 deficiency with information, connection, and advocacy.</p>
-      </div>
-      <div class="families-content">
-        <p>Whether you are newly diagnosed or have been navigating this journey for years, our goal is to help you access reliable information and connect with others who understand.</p>
-        <a href="#get-involved" class="btn btn-primary">Connect With Us</a>
-      </div>
+  <!-- Families -->
+  <section id="families" class="section">
+    <div class="container narrow">
+      <h2>For Families</h2>
+      <p>You are not alone. We are committed to supporting families affected by SMG9 deficiency with information, connection, and advocacy. Whether you are newly diagnosed or have been navigating this journey for years, our goal is to help you access reliable information and connect with others who understand.</p>
+      <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">Connect With Us</a>
     </div>
   </section>
 
-  <!-- Get Involved / Donate -->
-  <section id="get-involved" class="section get-involved">
+  <!-- Get Involved -->
+  <section id="get-involved" class="section alt">
     <div class="container">
-      <div class="section-header">
-        <h2>Get Involved</h2>
-        <p>Every contribution helps advance research and support families. There are many ways to make a difference.</p>
-      </div>
+      <h2>Get Involved</h2>
+      <p class="section-lead">Every contribution helps advance research and support families.</p>
       <div class="cards">
         <div class="card">
           <h3>Donate</h3>
           <p>Your gift directly funds research into SMG9 deficiency and supports families.</p>
-          <a href="#donate" class="text-link">Make a Gift →</a>
+          <a href="#donate" class="card-link">Make a Gift →</a>
         </div>
         <div class="card">
           <h3>Share Our Story</h3>
           <p>Help raise awareness by sharing information about SMG9 deficiency and our mission.</p>
-          <a href="#" class="text-link">Learn How →</a>
+          <a href="#" class="card-link">Learn How →</a>
         </div>
         <div class="card">
           <h3>Partner With Us</h3>
           <p>Researchers and clinicians interested in collaboration are encouraged to reach out.</p>
-          <a href="mailto:info@zojafoundation.com" class="text-link">Contact Us →</a>
+          <a href="#contact" class="card-link">Contact Us →</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Donate CTA -->
-  <section id="donate" class="section donate-cta">
+  <section id="donate" class="donate-cta">
     <div class="container">
       <h2>Support Our Research</h2>
       <p>Every discovery brings us closer to treatments. Every family gives us strength. Every gift makes hope possible.</p>
-      <a href="mailto:info@zojafoundation.com" class="btn btn-primary btn-large">Donate / Contact Us</a>
+      <a href="mailto:info@zojafoundation.com" class="btn btn-white">Donate / Contact Us</a>
       <p class="note">Zoja Research Foundation is a nonprofit organization. Gifts may be tax-deductible to the fullest extent allowed by law.</p>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer id="contact" class="footer">
     <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
+      <div class="footer-grid">
+        <div>
           <strong>Zoja Research Foundation</strong>
           <p>Advancing science. Supporting families. Creating hope.</p>
         </div>
         <div class="footer-links">
-          <a href="#mission">Mission</a>
+          <a href="#mission">About</a>
           <a href="#research">Research</a>
           <a href="#families">For Families</a>
           <a href="#get-involved">Get Involved</a>
+          <a href="mailto:info@zojafoundation.com">Contact</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -175,7 +247,6 @@
   </footer>
 
   <script>
-    // Simple mobile menu toggle
     const btn = document.querySelector('.mobile-menu-btn');
     const nav = document.querySelector('.nav');
     if (btn) {

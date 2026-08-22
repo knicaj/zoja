@@ -254,7 +254,7 @@
   <script>
     const menuBtn = document.getElementById('menu-btn');
     const nav = document.getElementById('main-nav');
-    const HEADER_OFFSET = 92; // header height + a little extra breathing room
+    const HEADER_OFFSET = 92;
 
     menuBtn.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('open');
@@ -307,23 +307,22 @@
 
         e.preventDefault();
 
-        // Close mobile menu
         nav.classList.remove('open');
         menuBtn.classList.remove('open');
         menuBtn.setAttribute('aria-expanded', 'false');
 
         openAccordion(id);
 
-        // Wait for the accordion open animation (0.35s) to finish, then scroll
+        // Start scrolling while the accordion is still opening (snappier feel)
         setTimeout(() => {
           scrollToElement(target);
-        }, 380);
+        }, 160);
 
         history.pushState(null, '', '#' + id);
       });
     });
 
-    // Contact / Donate links (no accordion)
+    // Contact / Donate links
     document.querySelectorAll('a[href="#contact"], a[href="#donate"]').forEach(link => {
       link.addEventListener('click', (e) => {
         const target = document.querySelector(link.getAttribute('href'));
@@ -349,7 +348,7 @@
         }
         setTimeout(() => {
           scrollToElement(target);
-        }, 100);
+        }, 80);
       }
     }
   </script>

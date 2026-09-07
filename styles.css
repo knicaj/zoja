@@ -498,6 +498,55 @@ button.card-link {
   margin-bottom: 28px;
 }
 
+/* ===== Inner pages ===== */
+.page-hero {
+  padding: 48px 0 10px;
+  background: linear-gradient(165deg, #fdf8f3 0%, #f8ebe0 70%, #f5e6dc 100%);
+}
+
+.page-hero h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  line-height: 1.15;
+  color: var(--teal);
+  margin-bottom: 14px;
+}
+
+.page-kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.content-list {
+  margin: 8px 0 20px 22px;
+  color: var(--text-soft);
+}
+
+.content-list li {
+  margin-bottom: 8px;
+}
+
+.page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.faq-item {
+  margin-bottom: 22px;
+}
+
+.faq-item h3 {
+  color: var(--teal);
+  font-size: 1.08rem;
+  margin-bottom: 6px;
+}
+
 /* ===== Contact Form ===== */
 .contact-form {
   margin-top: 8px;
